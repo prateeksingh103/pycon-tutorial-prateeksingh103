@@ -42,4 +42,13 @@ def test_consume_3():
     assert chars == 7                     # includes whitespace in char count
     assert words == 3
     assert lines == 1
-    
+
+def test_consume_4():
+    # check something tricky: whitespace at beginning & end of line
+    testfile = _make_testfile('sometext.txt', ' a b c d ee')
+    chars, words, lines = wordcount_lib.consume(testfile)
+
+    assert chars == 11                     # includes whitespace in char count
+    assert words == 5
+    assert lines == 1
+ 
